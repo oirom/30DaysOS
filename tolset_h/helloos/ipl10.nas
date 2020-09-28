@@ -43,10 +43,8 @@ entry:
 		MOV		CH,0			; シリンダ0
 		MOV		DH,0			; ヘッド0
 		MOV		CL,2			; セクタ2
-
 readloop:
 		MOV		SI,0			; 失敗回数用のカウンタ
-
 retry:
 		MOV		AH,0x02
 		MOV		AL,1
@@ -61,7 +59,6 @@ retry:
 		MOV		DL,0x00
 		INT		0x13
 		JMP		retry
-
 next:
 		MOV		AX,ES			; アドレスを0x0200進める
 		ADD		AX,0x0020
